@@ -11,7 +11,7 @@ While obvious, it is important to have an appropriate version of R installed on 
 ```{r}
 install.packages("devtools")
 require(devtools)
-install_github(repo = "huntercole25/EcoCountHelper", build_vignettes = T)
+install_github(repo = "huntercole25/HuntersToolbox")
 ```
 
 ## Current Functions
