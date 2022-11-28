@@ -18,6 +18,7 @@ LCP_Calc(
   SlopePath,
   SaveDir,
   FileName,
+  proj4str,
   SteepAngle = 99,
   CostFun = "ree"
 )
@@ -47,6 +48,8 @@ and using the same CRS as the DEM layer.}
 \item{SaveDir}{A character string supplying the path to the directory the LCP should be saved to.}
 
 \item{FileName}{A character string supplying the base file name for LCP shapefile components.}
+
+\item{proj4str}{A character string supplying the proj4 string for the slope and DEM layers' CRS.}
 
 \item{SteepAngle}{A numeric value indicating the minimum angle (in degrees) that should be considered
 prohibitively steep. If no terrain is to be considered prohibitively steep, use a value >90.}
