@@ -8,7 +8,7 @@ WKT_Trunc(File, OutputFile, Digits = 1, Separator = ";")
 }
 \arguments{
 \item{File}{A character string supplying the path to a tabular (e.g., CSV, TXT) WKT-formatted
-providing vertices for a point, line or polygon layer.}
+file providing vertices for a point, line or polygon layer.}
 
 \item{OutputFile}{A character string supplying the full path to save the output file to.}
 

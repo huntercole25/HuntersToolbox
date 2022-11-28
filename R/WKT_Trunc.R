@@ -3,7 +3,7 @@
 #' This function decreases the number of decimal points associated with WKT coordinate strings.
 #'
 #' @param File A character string supplying the path to a tabular (e.g., CSV, TXT) WKT-formatted
-#' providing vertices for a point, line or polygon layer.
+#' file providing vertices for a point, line or polygon layer.
 #' @param OutputFile A character string supplying the full path to save the output file to.
 #' @param Digits An integer indicating the number of decimal places to maintain.
 #' @param Separator A character string indicating the column separator character used in the input file.
