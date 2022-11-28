@@ -14,7 +14,7 @@
 #' TestFile <- "C:/Users/Hunter/Documents/TestWKT.csv"
 #' TestOutput <- "C:/Users/Hunter/Documents/OutputWKT.csv"
 #'
-#' WKT_Trunc(TestFile, TestOutput, 2, separator = ",")
+#' WKT_Trunc(TestFile, TestOutput, 2, Separator = ",")
 #' }
 #' @export
 
