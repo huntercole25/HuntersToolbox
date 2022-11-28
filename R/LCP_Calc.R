@@ -23,6 +23,7 @@
 #' and using the same CRS as the DEM layer.
 #' @param SaveDir A character string supplying the path to the directory the LCP should be saved to.
 #' @param FileName A character string supplying the base file name for LCP shapefile components.
+#' @param proj4str A character string supplying the proj4 string for the slope and DEM layers' CRS.
 #' @param SteepAngle A numeric value indicating the minimum angle (in degrees) that should be considered
 #' prohibitively steep. If no terrain is to be considered prohibitively steep, use a value >90.
 #' @param CostFun A character string supplying the cost function to be used. For details about cost function
@@ -53,7 +54,7 @@
 #' @export
 
 LCP_Calc <- function(StartE, StartN, EndE, EndN, Lcoord, Tcoord, Rcoord, Bcoord, ResampleFactor = NA,
-                           DtmPath, SlopePath, SaveDir, FileName,
+                           DtmPath, SlopePath, SaveDir, FileName, proj4str,
                            SteepAngle = 99,
                            CostFun = "ree"){
   Dtm <- raster::raster(DtmPath)
@@ -81,15 +82,15 @@ LCP_Calc <- function(StartE, StartN, EndE, EndN, Lcoord, Tcoord, Rcoord, Bcoord,
   }
 
 
-  Start <- data.table::data.table(Easting = StartE, Northing = StartN, Name = "Start")
+  Start <- data.table::data.table(x = StartE, y = StartN, Name = "Start")
 
-  End <- data.table::data.table(Easting = EndE, Northing = EndN, Name = "End")
+  End <- data.table::data.table(x = EndE, y = EndN, Name = "End")
 
-  StartShp <- sp::SpatialPointsDataFrame(Start[,c("Easting", "Northing")], Start,
-                                     proj4string = raster::crs("+proj=utm +zone=11 +ellps=WGS84 +datum=WGS84 +units=m +no_defs "))
+  StartShp <- sp::SpatialPointsDataFrame(Start[,c("x", "y")], Start,
+                                     proj4string = raster::crs(proj4str))
 
-  EndShp <- sp::SpatialPointsDataFrame(End[,c("Easting", "Northing")], End,
-                                   proj4string = raster::crs("+proj=utm +zone=11 +ellps=WGS84 +datum=WGS84 +units=m +no_defs "))
+  EndShp <- sp::SpatialPointsDataFrame(End[,c("x", "y")], End,
+                                   proj4string = raster::crs(proj4str))
 
   StartTime <- base::Sys.time()
 
@@ -100,12 +101,12 @@ LCP_Calc <- function(StartE, StartN, EndE, EndN, Lcoord, Tcoord, Rcoord, Bcoord,
   LineTab <- sp::coordinates(TestCorr$lcp_a_to_b)[[1]][[1]]
 
   LineList <- sp::SpatialLinesDataFrame(sp::SpatialLines(base::list(sp::Lines(base::list(sp::Line(base::cbind(LineTab[1:2,1], LineTab[1:2,2]))), 1)),
-                                                 proj4string = raster::crs("+proj=utm +zone=11 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ")),
+                                                 proj4string = raster::crs(proj4str)),
                                     data = data.table::data.table(FID = 1))
 
   for(i in 2:(nrow(LineTab)-1)){
     Tmp <- sp::SpatialLinesDataFrame(sp::SpatialLines(base::list(sp::Lines(base::list(sp::Line(base::cbind(LineTab[base::seq(i,i+1),1], LineTab[seq(i,i+1),2]))), 1)),
-                                              proj4string = raster::crs("+proj=utm +zone=11 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ")),
+                                              proj4string = raster::crs(proj4str)),
                                  data = data.table::data.table(FID = i))
 
     LineList <- base::c(LineList, Tmp)
