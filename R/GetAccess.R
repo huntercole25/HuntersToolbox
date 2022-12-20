@@ -23,7 +23,7 @@
 
 GetAccess <- function(SheetName, Path){
 accdb_con <- DBI::dbConnect(drv = odbc::odbc(),
-                       .connection_string = paste0("Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=",
+                       .connection_string = base::paste0("Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=",
                                                    Path,
                                                    ";"))
 

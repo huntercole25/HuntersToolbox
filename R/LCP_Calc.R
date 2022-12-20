@@ -62,13 +62,13 @@ LCP_Calc <- function(StartE, StartN, EndE, EndN, Lcoord, Tcoord, Rcoord, Bcoord,
   Dtm <- raster::crop(Dtm, raster::extent(Lcoord, Rcoord, Bcoord, Tcoord))
 
   Slope <- raster::raster(SlopePath)
-  names(Slope) <- "Slp_mxm"
+  base::names(Slope) <- "Slp_mxm"
 
   Slope <- raster::crop(Slope, raster::extent(Dtm))
 
   SlopeEdit <- Slope
 
-  try(SlopeEdit[SlopeEdit >= SteepAngle] <- NA, silent = T)
+  base::try(SlopeEdit[SlopeEdit >= SteepAngle] <- NA, silent = T)
 
   Dtm <- raster::mask(Dtm, SlopeEdit)
 
