@@ -24,7 +24,7 @@
 #' ClassFinder("data.table")
 #'
 #' # Finding objects of class "data.table" that start with "s"
-#' ClassFinder("data.table", "^s.+)
+#' ClassFinder("data.table", "^s.+")
 #'
 #' # Finding objects of class "data.table" and returning names as a comma and space separated string
 #' ClassFinder("data.table", CollapseString = T)
