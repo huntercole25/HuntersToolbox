@@ -3,6 +3,7 @@
 export(ClassFinder)
 export(GetAccess)
 export(LCP_Calc)
+export(LengthUnique)
 export(MultiMerge)
 export(WKT_Trunc)
 export(theme_PREM)
