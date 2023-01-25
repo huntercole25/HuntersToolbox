@@ -1,5 +1,7 @@
 # **HuntersToolbox**
 
+<a href="https://zenodo.org/badge/latestdoi/268901372"><img src="https://zenodo.org/badge/268901372.svg" alt="DOI"></a>
+
 ## Package Purpose
 
 `HuntersToolbox` is a R package serving as a traveling box of accessory R functions that I use or have used on a day-to-day basis. These functions may or may not be related and have no common theme aside from being handy to me.
