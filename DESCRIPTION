@@ -1,8 +1,8 @@
 Package: HuntersToolbox
 Type: Package
 Title: Hunter Cole's R Toolbox
-Version: 0.0.1
-Date: 2022-11-27
+Version: 1.1.1
+Date: 2023-1-25
 Depends:
   R (>= 4.0.0)
 Imports:
