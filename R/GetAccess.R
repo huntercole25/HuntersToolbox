@@ -1,9 +1,10 @@
 #' Read a MS Access table as a data table
 #'
-#' This function reads a specified MS Access table as a data table. It requires MS Access drivers which can
+#' This function reads a specified MS Access table as a data table. In a Windows OS, it requires MS Access drivers which can
 #' currently be found \href{https://www.microsoft.com/en-us/download/details.aspx?id=54920}{here}. If using
 #' this function causes R to crash while copying and pasting or switching tabs, consider installing Access
 #' Runtime which can be found \href{https://www.microsoft.com/en-us/download/details.aspx?id=50040}{here}.
+#' In a Linux OS, it requires 'mdbtools' which can be installed in the termina with "sudo apt install mdbtools".
 #'
 #' @param SheetName A character string matching the name of the MS Access table to be read.
 #' @param Path A character string containing the path to the MS Access database within which the table
@@ -22,10 +23,32 @@
 
 
 GetAccess <- function(SheetName, Path){
-accdb_con <- DBI::dbConnect(drv = odbc::odbc(),
+  if(Sys.info()['sysname']=="Windows"){
+    accdb_con <- DBI::dbConnect(drv = odbc::odbc(),
                        .connection_string = base::paste0("Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=",
                                                    Path,
                                                    ";"))
 
-data.table::as.data.table(DBI::dbReadTable(accdb_con, SheetName))
+    data.table::as.data.table(DBI::dbReadTable(accdb_con, SheetName))
+  }
+
+  if(Sys.info()['sysname']=="Linux"){
+    warning("When used within a Linux distribution, GetAccess can only generate character and numeric vectors. Vectors intended to be another class (e.g., Date) must be converted/created after the GetAccess call.")
+
+    TmpFile <- paste0(tempfile(), ".csv")
+    AccessDir <- dirname(Path)
+    AccessFile <- basename(Path)
+    AccessTable <- SheetName
+
+    DirFixed <- gsub(" ", "\\\\ ", AccessDir)
+    AccessFixed <- gsub(" ", "\\\\ ", AccessFile)
+    TableFixed <- gsub(" ", "\\\\ ", AccessTable)
+
+    SysString <- paste0("cd ", DirFixed, " && mdb-export ", AccessFixed, " ", TableFixed, " > ", TmpFile)
+
+    fread(TmpFile)
+  }
+
+  if(!Sys.info()['sysname'] %in% c("Windows", "Linux")) stop("Your OS is incompatible with GetAccess.")
+
 }
