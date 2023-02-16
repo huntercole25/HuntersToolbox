@@ -36,13 +36,15 @@ ClassFinder <- function(Class, Pattern = ".", CollapseString = F){
   Query <- data.table::as.data.table(sapply(sapply(ls(pos = .GlobalEnv, pattern = Pattern), get),
                                 inherits, Class), keep.rownames = T)
 
-  if(length(Query)==1){
+  Query <- Query[Query$V2==T,]
+
+  if(nrow(Query)==0){
     print("No objects meeting these criteria were found in the global environment.")
   }else{
     if(CollapseString == F){
-      Query[V2 == T, V1]
+      Query[Query$V2 == T, Query$V1]
     }else{
-      paste(Query[V2 == T, V1], collapse = ", ")
+      paste(Query[Query$V2 == T, Query$V1], collapse = ", ")
     }
   }
 }
