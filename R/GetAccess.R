@@ -46,6 +46,8 @@ GetAccess <- function(SheetName, Path){
 
     SysString <- paste0("cd ", DirFixed, " && mdb-export ", AccessFixed, " ", TableFixed, " > ", TmpFile)
 
+    system(SysString)
+
     fread(TmpFile)
   }
 
