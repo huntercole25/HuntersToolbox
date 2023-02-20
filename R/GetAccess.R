@@ -29,7 +29,7 @@ GetAccess <- function(SheetName, Path){
                                                    Path,
                                                    ";"))
 
-    data.table::as.data.table(DBI::dbReadTable(accdb_con, SheetName))
+    return(data.table::as.data.table(DBI::dbReadTable(accdb_con, SheetName)))
   }
 
   if(base::Sys.info()['sysname']=="Linux"){
