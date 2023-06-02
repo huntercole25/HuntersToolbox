@@ -23,7 +23,7 @@
 
 
 GetAccess <- function(SheetName, Path){
-  if(Sys.info()['sysname']=="Windows"){
+  if(base::Sys.info()['sysname']=="Windows"){
     accdb_con <- DBI::dbConnect(drv = odbc::odbc(),
                        .connection_string = base::paste0("Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=",
                                                    Path,
@@ -32,21 +32,23 @@ GetAccess <- function(SheetName, Path){
     return(data.table::as.data.table(DBI::dbReadTable(accdb_con, SheetName)))
   }
 
-  if(Sys.info()['sysname']=="Linux"){
-    warning("When used within a Linux distribution, GetAccess can only generate character and numeric vectors. Vectors intended to be another class (e.g., Date) must be converted/created after the GetAccess call.")
+  if(base::Sys.info()['sysname']=="Linux"){
+    base::warning("When used within a Linux distribution, GetAccess can only generate character and numeric vectors. Vectors intended to be another class (e.g., Date) must be converted/created after the GetAccess call.")
 
-    TmpFile <- paste0(tempfile(), ".csv")
-    AccessDir <- dirname(Path)
-    AccessFile <- basename(Path)
+    TmpFile <- base::paste0(tempfile(), ".csv")
+    AccessDir <- base::dirname(Path)
+    AccessFile <- base::basename(Path)
     AccessTable <- SheetName
 
-    DirFixed <- gsub(" ", "\\\\ ", AccessDir)
-    AccessFixed <- gsub(" ", "\\\\ ", AccessFile)
-    TableFixed <- gsub(" ", "\\\\ ", AccessTable)
+    DirFixed <- base::gsub(" ", "\\\\ ", AccessDir)
+    AccessFixed <- base::gsub(" ", "\\\\ ", AccessFile)
+    TableFixed <- base::gsub(" ", "\\\\ ", AccessTable)
 
-    SysString <- paste0("cd ", DirFixed, " && mdb-export ", AccessFixed, " ", TableFixed, " > ", TmpFile)
+    SysString <- base::paste0("cd ", DirFixed, " && mdb-export ", AccessFixed, " ", TableFixed, " > ", TmpFile)
 
-    fread(TmpFile)
+    base::system(SysString)
+
+    base::return(data.table::fread(TmpFile))
   }
 
   if(!Sys.info()['sysname'] %in% c("Windows", "Linux")) stop("Your OS is incompatible with GetAccess.")
