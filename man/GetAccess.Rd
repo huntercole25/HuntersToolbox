@@ -17,10 +17,11 @@ This function returns the table of interest (specified using the \code{SheetName
 data table.
 }
 \description{
-This function reads a specified MS Access table as a data table. It requires MS Access drivers which can
+This function reads a specified MS Access table as a data table. In a Windows OS, it requires MS Access drivers which can
 currently be found \href{https://www.microsoft.com/en-us/download/details.aspx?id=54920}{here}. If using
 this function causes R to crash while copying and pasting or switching tabs, consider installing Access
 Runtime which can be found \href{https://www.microsoft.com/en-us/download/details.aspx?id=50040}{here}.
+In a Linux OS, it requires 'mdbtools' which can be installed in the terminal with "sudo apt install mdbtools".
 }
 \examples{
 \dontrun{

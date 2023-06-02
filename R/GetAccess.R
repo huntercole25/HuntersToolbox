@@ -4,7 +4,7 @@
 #' currently be found \href{https://www.microsoft.com/en-us/download/details.aspx?id=54920}{here}. If using
 #' this function causes R to crash while copying and pasting or switching tabs, consider installing Access
 #' Runtime which can be found \href{https://www.microsoft.com/en-us/download/details.aspx?id=50040}{here}.
-#' In a Linux OS, it requires 'mdbtools' which can be installed in the termina with "sudo apt install mdbtools".
+#' In a Linux OS, it requires 'mdbtools' which can be installed in the terminal with "sudo apt install mdbtools".
 #'
 #' @param SheetName A character string matching the name of the MS Access table to be read.
 #' @param Path A character string containing the path to the MS Access database within which the table
