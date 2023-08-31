@@ -2,6 +2,9 @@
 #'
 #' A pre-packaged theme. To make inline modifications to this theme, use \code{\link[ggplot2]{theme}}.
 #'
+#' @param MajorGrid A character string specifying the color of major grid lines.
+#' @param MinorGrid A character string specifying the color of minor grid lines.
+#'
 #' @examples
 #' #Creating a plot with theme_PREM
 #'
