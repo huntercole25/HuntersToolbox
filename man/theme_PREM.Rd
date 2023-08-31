@@ -6,6 +6,11 @@
 \usage{
 theme_PREM(MajorGrid = "white", MinorGrid = "white")
 }
+\arguments{
+\item{MajorGrid}{A character string specifying the color of major grid lines.}
+
+\item{MinorGrid}{A character string specifying the color of minor grid lines.}
+}
 \description{
 A pre-packaged theme. To make inline modifications to this theme, use \code{\link[ggplot2]{theme}}.
 }
