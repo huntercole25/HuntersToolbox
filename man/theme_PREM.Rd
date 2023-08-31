@@ -4,18 +4,25 @@
 \alias{theme_PREM}
 \title{A simple and elegant ggplot2 theme}
 \usage{
-theme_PREM()
+theme_PREM(MajorGrid = "white", MinorGrid = "white")
 }
 \description{
 A pre-packaged theme. To make inline modifications to this theme, use \code{\link[ggplot2]{theme}}.
 }
 \examples{
-#Creating a plot with theme_nocturnal
+#Creating a plot with theme_PREM
+
 library(ggplot2)
 
 Plot <- ggplot(cars, aes(speed, dist)) +
   geom_point() +
   theme_PREM()
+
+#Creating a plot with visible grid lines
+
+PlotLines <- ggplot(cars, aes(speed, dist)) +
+  geom_point() +
+  theme_PREM(MajorGrid = "grey90", MinorGrid = "grey95")
 
 #Changing the axis text size of a theme_PREM plot
 
