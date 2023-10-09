@@ -1,6 +1,6 @@
 # **HuntersToolbox**
 
-<a href="https://zenodo.org/badge/latestdoi/268901372"><img src="https://zenodo.org/badge/268901372.svg" alt="DOI"></a>
+<a href="https://zenodo.org/badge/latestdoi/268901372"><img src="https://zenodo.org/badge/268901372.svg" alt="DOI"/></a>
 
 ## Package Purpose
 
@@ -10,8 +10,7 @@
 
 While obvious, it is important to have an appropriate version of R installed on your machine. This package requires R 4.0.0 or newer. The simplest way to install `HuntersToolbox` is to use the `install_github` function from the `devtools` package. Before proceeding with this the installation of `HuntersToolbox`, you must first ensure that you have the software "Rtools" installed [(available through this link)](https://cran.r-project.org/bin/windows/Rtools/), then ensure `devtools` is installed. To install and load `devtools` then install `HuntersToolbox`, use the code below:
 
-```{r}
-install.packages("devtools")
+```{install.packages("devtools")}
 require(devtools)
 install_github(repo = "huntercole25/HuntersToolbox")
 ```
@@ -30,6 +29,10 @@ install_github(repo = "huntercole25/HuntersToolbox")
 
 -   **MultiMerge -** Behaves in the same way as base R's `merge` function, but allows users to specify three or more tables to merge.
 
+-   **PlotDate -** Use this function to round Date class values down to the first date of the month or year.
+
 -   **theme_PREM -** A simple and elegant ggplot2 theme.
+
+-   **TimeChr -** This function extracts the hour, minute and second values from a POSIX class object, separates these values with colons, and adds leading zeros as necessary.
 
 -   **WKT_Trunc -** Decreases the number of decimal points associated with WKT coordinate strings.

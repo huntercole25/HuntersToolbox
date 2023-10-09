@@ -13,7 +13,7 @@ TimeChr(DateTime)
 This function returns a hh:mm:ss time character vector of the same length as `DateTime`.
 }
 \description{
-This function extracts the hour, minute and second values from a PSOIX class object, separates these
+This function extracts the hour, minute and second values from a POSIX class object, separates these
 values with colons, and adds leading zeros as necessary.
 }
 \examples{

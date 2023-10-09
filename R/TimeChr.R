@@ -1,6 +1,6 @@
 #' Extract a hh:mm:ss time character string with leading zeros from a POSIX class object
 #'
-#' This function extracts the hour, minute and second values from a PSOIX class object, separates these
+#' This function extracts the hour, minute and second values from a POSIX class object, separates these
 #' values with colons, and adds leading zeros as necessary.
 #'
 #' @param DateTime A POSIX class value or vector
