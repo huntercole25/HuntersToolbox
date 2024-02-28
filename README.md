@@ -10,10 +10,7 @@
 
 While obvious, it is important to have an appropriate version of R installed on your machine. This package requires R 4.0.0 or newer. The simplest way to install `HuntersToolbox` is to use the `install_github` function from the `devtools` package. Before proceeding with this the installation of `HuntersToolbox`, you must first ensure that you have the software "Rtools" installed [(available through this link)](https://cran.r-project.org/bin/windows/Rtools/), then ensure `devtools` is installed. To install and load `devtools` then install `HuntersToolbox`, use the code below:
 
-```{install.packages("devtools")}
-require(devtools)
-install_github(repo = "huntercole25/HuntersToolbox")
-```
+`{install.packages("devtools")} require(devtools) install_github(repo = "huntercole25/HuntersToolbox")`
 
 ## Current Functions
 

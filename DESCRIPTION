@@ -1,8 +1,8 @@
 Package: HuntersToolbox
 Type: Package
 Title: Hunter Cole's R Toolbox
-Version: 1.2.3
-Date: 2023-10-09
+Version: 1.3.1
+Date: 2024-02-28
 Depends:
   R (>= 4.0.0)
 Imports:
@@ -13,7 +13,6 @@ Imports:
 	odbc (>= 1.3.3),
 	movecost(>= 1.8),
 	raster (>= 3.6-3),
-	rgdal (>= 1.5-32),
 	sp (>= 1.5-0)
 Author: Hunter Cole
 Maintainer: Hunter Cole <hunterjcole25@gmail.com>
