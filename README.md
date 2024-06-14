@@ -18,9 +18,9 @@ While obvious, it is important to have an appropriate version of R installed on 
 
 -   **GetAccess -** This function reads a specified MS Access table as a data table.
 
--   **LandsatQualityCodes -** This function parses the binary code underlying Landsat 5 and 8 "QA_PIXEL" raster values and truncates raster values in accordance with user-specified conditions.
+-   **ListTables** **-** This function returns all tables and queries in a specified MS Access database.
 
--   **LCP_Calc -** Uses the `movecost` package's `movecorr` function to calculate least-cost paths (LCPs) using user supplied DEM and slope layers. Users can also specify what they would like to consider a prohibitively steep slope to try and avoid steep terrain. This function is not perfect, should be used only as a tool for considering potential movement paths, and should always be examined by someone with terrain navigation experience if used for route planning.
+-   **LandsatQualityCodes -** This function parses the binary code underlying Landsat 5 and 8 "QA_PIXEL" raster values and truncates raster values in accordance with user-specified conditions.
 
 -   **LengthUnique -** This function is simply a wrapper for a `unique` call nested in a length call, effectively allowing users to count the number of unique values in a vector with a single function call. This is particularly useful for use in `apply`, `lapply`, `aggregate` and similar fuctions that require the use of a single function argument.
 
