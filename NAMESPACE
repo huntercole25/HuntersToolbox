@@ -2,9 +2,9 @@
 
 export(ClassFinder)
 export(GetAccess)
-export(LCP_Calc)
 export(LandsatQualityCodes)
 export(LengthUnique)
+export(ListTables)
 export(MultiMerge)
 export(PlotDate)
 export(TimeChr)
