@@ -18,15 +18,17 @@ While obvious, it is important to have an appropriate version of R installed on 
 
 -   **GetAccess -** This function reads a specified MS Access table as a data table.
 
--   **ListTables** **-** This function returns all tables and queries in a specified MS Access database.
-
 -   **LandsatQualityCodes -** This function parses the binary code underlying Landsat 5 and 8 "QA_PIXEL" raster values and truncates raster values in accordance with user-specified conditions.
 
 -   **LengthUnique -** This function is simply a wrapper for a `unique` call nested in a length call, effectively allowing users to count the number of unique values in a vector with a single function call. This is particularly useful for use in `apply`, `lapply`, `aggregate` and similar fuctions that require the use of a single function argument.
 
+-   **ListTables** **-** This function returns all tables and queries in a specified MS Access database.
+
 -   **MultiMerge -** Behaves in the same way as base R's `merge` function, but allows users to specify three or more tables to merge.
 
 -   **PlotDate -** Use this function to round Date class values down to the first date of the month or year.
+
+-   **SST_3.4 -** This function retrieves mean monthly sea surface temperature anomaly data for ENSO region 3.4 from a [NOAA server](https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/detrend.nino34.ascii.txt).
 
 -   **theme_PREM -** A simple and elegant ggplot2 theme.
 
