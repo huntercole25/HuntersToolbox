@@ -22,8 +22,8 @@
 #'
 #' @export
 
-SST_3.4 <- function(StartDate = "1970-01-01", EndDate = "2024-08-01"){
-  OniHistoric <- data.table::fread("https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/detrend.nino34.ascii.txt")
+SST_3.4 <- function(StartDate = "1950-01-01", EndDate = "2100-08-01"){
+  OniHistoric <- data.table::fread("https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/detrend.nino34.ascii.txt")
 
   OniHistoric$Date <- lubridate::ymd(base::paste(OniHistoric$YR, OniHistoric$MON, "01", sep = "-"))
 
